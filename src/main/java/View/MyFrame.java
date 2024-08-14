@@ -263,6 +263,8 @@ public class MyFrame extends JFrame {
                     imdb.modifyProductAvailability(item.getKey(), item.getValue());
                 }
 
+                cart.clear();
+
                 dispose();
                 JOptionPane.showMessageDialog(null, "Order Completed");
                 try {
@@ -398,13 +400,13 @@ public class MyFrame extends JFrame {
             }
         });
 
-        JButton btnFinishPurchase = new JButton("Sign Out");
+        JButton btnFinishPurchase = new JButton("Close");
         btnFinishPurchase.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 try {
-                    dispose();
-                    MyFrame login = new MyFrame("Login", 480, 300, "login");
+                    MyFrame adminOptions = new MyFrame("Login", 480, 300, "adminOptions");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
